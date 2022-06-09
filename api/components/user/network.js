@@ -97,6 +97,19 @@ router.get('/list', async function (req, res) {
 });
 
 
+router.get("/all_users", async function (req, res) {
+    getUser
+      .findAll({ attributes: ["username", "email", "password", "phone_number"] })
+      .then((users) => {
+        res.send(users);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+  
+
+
 
 
 
