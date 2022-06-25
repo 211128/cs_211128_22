@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { success} from './response.js';
 import {getData} from '../models/db.js'
 import { getUser } from "../models/User.js";
-
+import { getFather } from "../models/Father.js";
 
 
 
@@ -21,7 +21,7 @@ router.get('/success', function (req, res) {
 
 
 router.get('/list', async function (req, res) {
-    getUser.findAll({ attributes: ['username', 'email', 'password', 'phone_number'] })
+    getUser.findAll({include:{model:getFather,attributes:['name','fatherSurname','motherSurname','age']}, attributes: ['id','username',  'password'] })
         .then(users => {
             res.send(users)
         })
@@ -31,7 +31,7 @@ router.get('/list', async function (req, res) {
 })
 
 router.post('/add', async function (req, res) {
-    getUser.create({ username: "chingon", email: "sequelize12@gmail", password: "o123q@", phone_number: "9876543" });
+    getUser.create({ username: req.query.username, password: req.query.password});
 
 })
 

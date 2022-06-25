@@ -6,7 +6,7 @@ const router = Router();
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'img')
+        cb(null, 'img');
     },
     filename: (req, file, cb) => {
         const ext = file.originalname.split('.').pop()
@@ -18,7 +18,7 @@ const upload = multer({ storage })
 
 router.post('/upload', upload.single('name'), async function (req, res) {
 
-    // console.log(req.body.file)
+    
     getImage.create({
         
         name: req.file.originalname

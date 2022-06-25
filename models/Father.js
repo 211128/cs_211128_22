@@ -32,10 +32,6 @@ const Father = getData.sequelizeClient.define('cat_fathers', {
         allowNull: false,
     },
    
-}, {
-    tableName: 'cat_fathers',
-    freezeTableName: true,
-
 });
 
 Father.hasMany(getSon, {
@@ -43,6 +39,8 @@ Father.hasMany(getSon, {
 });
 
 getSon.belongsTo(Father);
+
+
 
 
 export  const getFather =  Father;

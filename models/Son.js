@@ -28,16 +28,8 @@ const Son = getData.sequelizeClient.define('cat_sons', {
     age: {
         type: DataTypes.BIGINT,
         allowNull: false,
-    },
-    id_father: {
-        type: DataTypes.BIGINT,
-        allowNull: false,
     }
 
-}, {
-    tableName: 'cat_sons',
-    freezeTableName: true,
-    
 });
 
 
