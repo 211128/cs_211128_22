@@ -6,7 +6,11 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app.js",
+    "start:dev": "cross-env NODE_ENV=development nodemon app.js",
+    "start:test": "cross-env NODE_ENV=test nodemon app.js",
+    "start:prod": "cross-env NODE_ENV=production nodemon app.js",
+    "seuelize": "dotenv sequelize"
   },
   "author": "",
   "license": "ISC",
